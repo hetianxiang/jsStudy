@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+    var AComponent = React.createClass({
+        handleIn: function () {
+            console.log(this.refs.inputText.value);
+            this.props.valueFun(this.refs.inputText.value);
+        },
+        render: function () {
+            return
+            <
+            input
+            type = "te xt"
+            ref = "inputText"
+            onChange = {this.handleIn
+        }/>
+        }
+    })
+    var BComponent = React.createClass({
+        handleClick: function () {
+            console.log(this.props.getFun());
+        },
+        render: function () {
+            return
+            <
+            button
+            onClick = {this.handleClick
+        } >
+            {
+                this.props.name
+            }
+            </
+            button >
+        }
+    })
+    var MixComponent = React.createClass({
+        value: 0,
+        valueFun: function (value) {
+            console.log("mix:" + value);
+            this.value = value;
+        },
+        get: function () {
+            return this.value;
+        },
+        render: function () {
+            return
+            <
+            div >
+            < AComponent
+            valueFun = {this.valueFun
+        }/>
+            <
+            BComponent
+            name = "点击"
+            getFun = {this.get
+        }/>
+            </
+            div >
+        }
+    })
+
+    ReactDOM.render(
+    < MixComponent / >,
+            document.getElementById('example')
+    )
+</script>
+
+</body>
+</html>

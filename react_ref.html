@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+
+var LoginWin = React.createClass({
+  handleIn:function(){
+    console.log(this.refs.inputV.value-this.refs.inputX.value);
+  },
+  render:function(){
+    return <div>
+      <input type="text" ref = "inputV"/>
+      <input type="text" ref = "inputX"/>
+      <input type="text" ref = "inputZ"/>
+      <button onClick = {this.handleIn} >登录</button>
+    </div>
+
+
+  }
+})
+
+
+ ReactDOM.render(
+ <LoginWin/>,
+ document.getElementById('example')
+ )
+</script>
+
+</body>
+</html>
