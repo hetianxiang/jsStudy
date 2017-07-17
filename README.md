@@ -1,4 +1,4 @@
-# jsStudy 从今天开始好好学习js
+# jsStudy 
 ## 开始学习react
 ### 组件
 
